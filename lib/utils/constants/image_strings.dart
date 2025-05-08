@@ -42,7 +42,7 @@ class TImages {
   static const String ikeaLogo = "assets/icons/brands/ikea_logo.png";
   static const String acerlogo = "assets/icons/brands/acer_logo.png";
 
-  // -- Animations
+// -- Animations
   static const String productsIllustration =
       "assets/images/animations/sammy-line-workout.gif";
   static const String productsSaleIllustration =
