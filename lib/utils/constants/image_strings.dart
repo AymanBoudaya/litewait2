@@ -42,7 +42,7 @@ class TImages {
   static const String ikeaLogo = "assets/icons/brands/ikea_logo.png";
   static const String acerlogo = "assets/icons/brands/acer_logo.png";
 
-// -- Animations
+  // -- Animations
   static const String productsIllustration =
       "assets/images/animations/sammy-line-workout.gif";
   static const String productsSaleIllustration =
@@ -240,7 +240,7 @@ class TImages {
   static const String banner8 = "assets/images/banners/banner_8.jpg";
 
   //Profile
-  static const String user = "assets/images/content/user.png";
+  static const String user = "assets/images/user/pdp.jpg";
 
   // -- Payment Methods
   static const String applePay = "assets/icons/payment_methods/apple-pay.png";

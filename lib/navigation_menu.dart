@@ -1,13 +1,15 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:caferesto/features/personalization/screens/settings/settings.dart';
 import 'package:caferesto/features/shop/screens/home/home.dart';
-import 'package:caferesto/pages/coffeepage.dart';
-import 'package:caferesto/pages/home.page.dart';
+import 'package:caferesto/features/shop/screens/store/store.dart';
 import 'package:caferesto/utils/constants/colors.dart';
 import 'package:caferesto/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
+import 'features/shop/screens/wishlist/wishlist.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -45,10 +47,8 @@ class NavigationController extends GetxController {
 
   final screens = [
     HomeScreen(),
-    HomePage(),
-    const CoffeePage(),
-    Container(
-      color: Colors.deepPurple,
-    ),
+    StoreScreen(),
+    FavoriteScreen(),
+    SettingsScreen(),
   ];
 }

@@ -1,18 +1,14 @@
-import 'package:caferesto/common/widgets/custom_shapes/containers/circular_container.dart';
-import 'package:caferesto/features/shop/controllers/home_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:get/get.dart';
-
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
-import '../../../../common/widgets/images/t_rounded_image.dart';
+import '../../../../common/widgets/layouts/grid_layout.dart';
+import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
-import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../authentication/screens/home/widgets/home_categories.dart';
-import '../widgets/home_appbar.dart';
+import 'widgets/home_appbar.dart';
 import 'package:flutter/material.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'widgets/promo_slider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -61,6 +57,7 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
             ),
@@ -68,60 +65,29 @@ class HomeScreen extends StatelessWidget {
             /// Body
             Padding(
                 padding: const EdgeInsets.all(TSizes.defaultSpace),
-                child: TPromoSlider(
-                  banners: [
-                    TImages.promoBanner1,
-                    TImages.promoBanner2,
-                    TImages.promoBanner3
+                child: Column(
+                  children: [
+                    const TPromoSlider(
+                      banners: [
+                        TImages.promoBanner1,
+                        TImages.promoBanner2,
+                        TImages.promoBanner3
+                      ],
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
+
+                    /// Popular products
+                    GridLayout(
+                      itemCount: 10,
+                      itemBuilder: (_, index) => const TProductCardVertical(),
+                    )
                   ],
                 )),
           ],
         ),
       ),
-    );
-  }
-}
-
-class TPromoSlider extends StatelessWidget {
-  const TPromoSlider({
-    super.key,
-    required this.banners,
-  });
-  final List<String> banners;
-
-  @override
-  Widget build(BuildContext context) {
-    final controller = Get.put(HomeController());
-    return Column(
-      children: [
-        CarouselSlider(
-            options: CarouselOptions(
-                viewportFraction: 1,
-                onPageChanged: (index, _) =>
-                    controller.updatePageIndicator(index)),
-            items: banners.map((url) => TRoundedImage(imageUrl: url)).toList()),
-        const SizedBox(
-          height: TSizes.spaceBtwItems,
-        ),
-        Center(
-          child: Obx(
-            () => Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                for (int i = 0; i < banners.length; i++)
-                  TCircularContainer(
-                      width: 20,
-                      height: 4,
-                      margin: EdgeInsets.only(right: 10),
-                      backgroundColor:
-                          controller.carousalCurrentIndex.value == i
-                              ? TColors.primary
-                              : TColors.grey),
-              ],
-            ),
-          ),
-        )
-      ],
     );
   }
 }
