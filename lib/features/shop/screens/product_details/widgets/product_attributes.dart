@@ -6,6 +6,7 @@ import 'package:caferesto/utils/constants/colors.dart';
 import 'package:caferesto/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../common/widgets/chips/choice_chip.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class TProductAttributes extends StatelessWidget {
@@ -70,7 +71,7 @@ class TProductAttributes extends StatelessWidget {
             ]),
 
             /// Variation description
-            TProductTitleText(
+            const TProductTitleText(
               title:
                   'C\'est la description du produit et qui peut s\'étendre jusqu\'à 4 lignes au maximum',
               smallSize: true,
@@ -83,16 +84,73 @@ class TProductAttributes extends StatelessWidget {
 
       /// Attributes
       Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const TSectionHeading(title: 'Couleurs'),
+          Wrap(
+            spacing: 8,
+            children: [
+              const TSectionHeading(
+                title: 'Couleurs',
+                showActionButton: false,
+              ),
+              const SizedBox(
+                height: TSizes.spaceBtwItems / 2,
+              ),
+              TChoiceChip(
+                text: 'Green',
+                selected: true,
+                onSelected: (value) {},
+              ),
+              TChoiceChip(
+                text: 'Blue',
+                selected: false,
+                onSelected: (value) {},
+              ),
+              TChoiceChip(
+                text: 'Yellow',
+                selected: false,
+                onSelected: (value) {},
+              ),
+              TChoiceChip(
+                text: 'Green',
+                selected: true,
+                onSelected: (value) {},
+              ),
+              TChoiceChip(
+                text: 'Blue',
+                selected: false,
+                onSelected: (value) {},
+              ),
+              TChoiceChip(
+                text: 'Yellow',
+                selected: false,
+                onSelected: (value) {},
+              ),
+            ],
+          ),
+        ],
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const TSectionHeading(
+            title: 'Taille',
+            showActionButton: false,
+          ),
           const SizedBox(
             height: TSizes.spaceBtwItems / 2,
           ),
-          ChoiceChip(
-            label: const Text('Vert'),
-            selected: true,
-            onSelected: (value) {},
-          )
+          Wrap(
+            spacing: 8,
+            children: [
+              TChoiceChip(
+                  text: 'EU 34', selected: true, onSelected: (value) {}),
+              TChoiceChip(
+                  text: 'EU 36', selected: false, onSelected: (value) {}),
+              TChoiceChip(
+                  text: 'EU 38', selected: false, onSelected: (value) {}),
+            ],
+          ),
         ],
       )
     ]);
