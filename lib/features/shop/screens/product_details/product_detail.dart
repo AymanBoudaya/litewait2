@@ -1,7 +1,9 @@
 import 'package:caferesto/common/widgets/texts/section_heading.dart';
 import 'package:caferesto/features/shop/screens/product_details/widgets/product_meta_data.dart';
+import 'package:caferesto/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:caferesto/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
@@ -90,7 +92,8 @@ class ProductDetailScreen extends StatelessWidget {
                         ),
                         IconButton(
                           icon: const Icon(Iconsax.arrow_right, size: 18),
-                          onPressed: () {},
+                          onPressed: () =>
+                              Get.to(() => const ProductReviewsScreen()),
                         )
                       ],
                     ),
